@@ -1,0 +1,268 @@
+.app {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.app-header {
+  margin-bottom: 30px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.app-header p {
+  margin: 10px 0 0 0;
+  opacity: 0.9;
+}
+
+.control-panel {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.control-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-btn.start {
+  background: #4CAF50;
+  color: white;
+}
+
+.control-btn.stop {
+  background: #ff9800;
+  color: white;
+}
+
+.control-btn.reset {
+  background: #f44336;
+  color: white;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.9em;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.cycle-indicator {
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #FFC107, #F44336);
+  transition: width 0.1s ease;
+}
+
+.intersection {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.road {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.vertical-road {
+  width: 60px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.horizontal-road {
+  height: 60px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intersection-center {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  z-index: 5;
+}
+
+.traffic-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.timing-info {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.timing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.timing-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Posicionamiento específico para cada semáforo */
+.vertical-road .traffic-group:first-child {
+  /* Norte - arriba */
+  margin-top: -10px;
+}
+
+.vertical-road .traffic-group:last-child {
+  /* Sur - abajo */
+  margin-bottom: -10px;
+}
+
+.horizontal-road .traffic-group:first-child {
+  /* Oeste - izquierda */
+  margin-left: -10px;
+}
+
+.horizontal-road .traffic-group:last-child {
+  /* Este - derecha */
+  margin-right: -10px;
+}
+
+.light-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.light-indicator.green {
+  background: #4CAF50;
+}
+
+.light-indicator.yellow {
+  background: #FFC107;
+}
+
+.light-indicator.red {
+  background: #F44336;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intersection {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .traffic-light {
+    transform: scale(0.7);
+  }
+  
+  .traffic-light.Norte {
+    transform: rotate(180deg) scale(0.6);
+  }
+  
+  .traffic-light.Sur {
+    transform: scale(0.6);
+  }
+  
+  .traffic-light.Este {
+    transform: rotate(-90deg) scale(0.6);
+  }
+  
+  .traffic-light.Oeste {
+    transform: rotate(90deg) scale(0.6);
+  }
+}
